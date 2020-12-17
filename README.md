@@ -53,9 +53,13 @@ The `Q` checksum is computed by taking the number `DDMMYYZZZ` and dividing it by
 
 More information (in Finnish): https://www.tuomas.salste.net/doc/tunnus/henkilotunnus.html?spm=a2c6h.14275010.0.0.7f6bdf17Psnzso#tarkm
 
-### RegEx
+### RegEx 1
 
 This RegEx matches any national identity number, both actual and temporary. 
+
+```
+(?:31|30|2\d|1\d|0[1-9])(?:12|11|10|0[1-9])(?:[1-9]\d|0[1-9])[-+A]\d{3}[a-xA-X0-9]
+```
 
 #### Features:
  - Checks that the date is real
@@ -65,7 +69,23 @@ This RegEx matches any national identity number, both actual and temporary.
  #### Shortcomings:
  - Doesn't check that the checksum is correct
  - Doesn't exclude numbers with invalid checksum characters
+ 
+ ### RegEx 2
+ 
+ This RegEx matches any real national identity number, but not temporary ones
+ 
+ ```
+ (?:31|30|2\d|1\d|0[1-9])(?:12|11|10|0[1-9])(?:[1-9]\d|0[1-9])[-+A](?:[0-8]\d{2})[a-xA-X0-9]
+ ```
+ 
+ #### Features:
+ - Checks that the date is real
+ - Checks that the century separator is one of the allowed characters
+ - Checks that the checksum character is with the correct realm, also checks for lowercase checksums incase of formatting issues. 
+ - Checks that the individual number is within 002 - 899
+ 
+ #### Shortcomings:
+ - Doesn't check that the checksum is correct
+ - Doesn't exclude numbers with invalid checksum characters
+ 
 
-```
-(?:31|30|2\d|1\d|0[1-9])(?:12|11|10|0[1-9])(?:[1-9]\d|0[1-9])[-+A]\d{3}[a-xA-X0-9]
-```
