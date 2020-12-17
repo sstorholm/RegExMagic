@@ -58,7 +58,7 @@ More information (in Finnish): https://www.tuomas.salste.net/doc/tunnus/henkilot
 This RegEx matches any national identity number, both actual and temporary. 
 
 ```
-(?:31|30|2\d|1\d|0[1-9])(?:12|11|10|0[1-9])(?:[1-9]\d|0[1-9])[-+A]\d{3}[a-xA-X0-9]
+(?:31|30|2\d|1\d|0[1-9])(?:12|11|10|0[1-9])(?:[1-9]\d|0[1-9])[-+A]\d{3}[a-fhj-npr-yA-FHJ-NPR-Y0-9]
 ```
 
 #### Features:
@@ -68,14 +68,13 @@ This RegEx matches any national identity number, both actual and temporary.
  
  #### Shortcomings:
  - Doesn't check that the checksum is correct
- - Doesn't exclude numbers with invalid checksum characters
  
  ### RegEx 2
  
  This RegEx matches any real national identity number, but not temporary ones
  
  ```
- (?:31|30|2\d|1\d|0[1-9])(?:12|11|10|0[1-9])(?:[1-9]\d|0[1-9])[-+A](?:[0-8]\d{2})[a-xA-X0-9]
+ (?:31|30|2\d|1\d|0[1-9])(?:12|11|10|0[1-9])(?:[1-9]\d|0[1-9])[-+A](?:[0-8]\d{2})[a-fhj-npr-yA-FHJ-NPR-Y0-9]
  ```
  
  #### Features:
@@ -86,6 +85,5 @@ This RegEx matches any national identity number, both actual and temporary.
  
  #### Shortcomings:
  - Doesn't check that the checksum is correct
- - Doesn't exclude numbers with invalid checksum characters
  
 
