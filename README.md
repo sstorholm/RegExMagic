@@ -51,6 +51,8 @@ The `Q` checksum is computed by taking the number `DDMMYYZZZ` and dividing it by
 | 30 | Y |   |
 | –	| Z	| not in use, easily confused with 2 |
 
+More information (in Finnish): https://www.tuomas.salste.net/doc/tunnus/henkilotunnus.html?spm=a2c6h.14275010.0.0.7f6bdf17Psnzso#tarkm
+
 ### RegEx
 
 This RegEx matches any national identity number, both actual and temporary. 
