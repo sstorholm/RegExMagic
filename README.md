@@ -1,9 +1,18 @@
 # RegExMagic
 Useful RegEx snippets that some people might find handy
 
-## Finnish Social Security Number / National Identitfication Number
+## TOC
+ - [Finnish National Identitfication Numbers](#finnish-national-identitfication-numbers)
+   * [Structure](#structure)
+   * [RegEx - Real and Temporary IDs](#regex---real-and-temporary-ids)
+   * [RegEx - Real IDs Only](#regex---real-ids-only)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
+
+## Finnish National Identitfication Numbers
 ### Structure
-Finnish National Identity Numbers have the format of `DDMMYYCZZZQ` , where `DDMMYY` is the day, month and year of birth, `C` the century sign, `ZZZ` the individual number and `Q` the control character (checksum). The sign for the century is either `+` (1800–1899), `-` (1900–1999), or `A` (2000–2099). The individual number `ZZZ` distinguishes persons with the same date of birth from each other and it is odd for males and even for females and for people born in Finland its range is 002–899. Numbers 900–999 are used for temporary personal identification, for example in hospitals, when an official ID is not known or has not yet been given to a child born.
+Finnish National Identification Numbers (also sometimes called Social Security Numbers) have the format of `DDMMYYCZZZQ` , where `DDMMYY` is the day, month and year of birth, `C` the century sign, `ZZZ` the individual number and `Q` the control character (checksum). The sign for the century is either `+` (1800–1899), `-` (1900–1999), or `A` (2000–2099). The individual number `ZZZ` distinguishes persons with the same date of birth from each other and it is odd for males and even for females and for people born in Finland its range is 002–899. Numbers 900–999 are used for temporary personal identification, for example in hospitals, when an official ID is not known or has not yet been given to a child born.
 
 | DD | MM | YY | C | ZZZ | Q |
 |---|---|---|---|---|---|
@@ -53,7 +62,7 @@ The `Q` checksum is computed by taking the number `DDMMYYZZZ` and dividing it by
 
 More information (in Finnish): https://www.tuomas.salste.net/doc/tunnus/henkilotunnus.html?spm=a2c6h.14275010.0.0.7f6bdf17Psnzso#tarkm
 
-### RegEx 1
+### RegEx - Real and Temporary IDs
 
 This RegEx matches any national identity number, both actual and temporary. 
 
@@ -69,7 +78,7 @@ This RegEx matches any national identity number, both actual and temporary.
  #### Shortcomings:
  - Doesn't check that the checksum is correct
  
- ### RegEx 2
+ ### RegEx - Real IDs Only
  
  This RegEx matches any real national identity number, but not temporary ones
  
